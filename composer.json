@@ -1,5 +1,5 @@
 {
-    "name": "knplabs/repository-service-provider",
+    "name": "insolis/repository-service-provider",
     "type": "library",
     "description": "Doctrine repository service provider for Silex",
     "keywords": [ "doctrine2", "silex", "repository" ],
@@ -9,6 +9,10 @@
         {
             "name":     "KnpLabs",
             "homepage": "http://knplabs.com"
+        },
+        {
+            "name":     "Gábor Fási",
+            "homepage": "http://maerlyn.eu"
         }
     ],
     "require": {
@@ -17,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Knp\\": ""
+            "Insolis\\": ""
         }
     }
 }
