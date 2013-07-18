@@ -15,13 +15,15 @@ Add `insolis/repository-service-provider` to your `composer.json` file.
 
 Register the service provider:
 
-    $app->register(
-        new Insolis\Provider\RepositoryServiceProvider(), array(
-            'repository.repositories' => array(
-                'projects' => 'MyProject\Repository\Project',
-            )
+```php
+$app->register(
+    new Insolis\Provider\RepositoryServiceProvider(), array(
+        'repository.repositories' => array(
+            'projects' => 'MyProject\Repository\Project',
         )
-    );
+    )
+);
+```
 
 The service provider expects parameter `repository.repositories` to be set and to be an associative array with service
 names as keys and repository classes as values.
@@ -39,8 +41,6 @@ In the example above, given your projects are stored in the `project` table, the
 would look like that:
 
 ```php
-<?php
-
 namespace MyProject\Repository;
 
 use Insolis\Repository;
@@ -108,8 +108,8 @@ return all projects based on their title:
 ```php
 public function findByTitle($title)
 {
-    return $this->db->fetchAll(sprintf("SELECT * FROM %s WHERE title = ?;', $this->getTableName()),
-        array($title));
+    return $this->db->fetchAll(sprintf("SELECT * FROM %s WHERE title = ?;",
+        $this->getTableName()), array($title));
 }
 ```
 
