@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp;
+namespace Insolis;
 
 use Doctrine\DBAL\Connection;
 
@@ -41,8 +41,8 @@ abstract class Repository
     /**
      * Executes an SQL UPDATE statement on a table.
      *
+     * @param array $data
      * @param array $identifier The update criteria. An associative array containing column-value pairs.
-     * @param array $types Types of the merged $data and $identifier arrays in that order.
      * @return integer The number of affected rows.
      */
     public function update(array $data, array $identifier)
