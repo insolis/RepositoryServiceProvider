@@ -82,7 +82,7 @@ Will update all projects' `title` from "foo" to "bar".
 $app['projects']->delete(array('title' => 'bar'));
 ```
 
-Will update all projects which title is "bar".
+Will delete all projects which title is "bar".
 
 ### `find($id)`
 
@@ -94,11 +94,20 @@ Returns the project which id field is 42.
 
 ### `findAll()`
 
+
 ```php
 $app['projects']->findAll();
 ```
 
 Returns the entire table content.
+
+### `count()`
+
+```php
+$app["projects"]->count();
+```
+
+Returns the count of all records in the table.
 
 ### Extending a repository
 

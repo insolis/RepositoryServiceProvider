@@ -81,4 +81,14 @@ abstract class Repository
     {
         return $this->db->fetchAll(sprintf('SELECT * FROM %s;', $this->getTableName()));
     }
+
+    /**
+     * Returns the record count of this repository's table
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return $this->db->fetchColumn(sprintf("SELECT COUNT(*) FROM %s;", $this->getTableName()));
+    }
 }
