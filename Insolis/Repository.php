@@ -15,12 +15,12 @@ abstract class Repository
     abstract public function getTableName();
 
     /**
-     * @var Doctrine\DBAL\Connection
+     * @var Connection
      */
     public $db;
 
     /**
-     * @param Doctrine\DBAL\Connection $db
+     * @param Connection $db
      */
     public function __construct(Connection $db)
     {
@@ -41,7 +41,7 @@ abstract class Repository
     /**
      * Executes an SQL UPDATE statement on a table.
      *
-     * @param array $data
+     * @param array $data An associative array containing column-value pairs.
      * @param array $identifier The update criteria. An associative array containing column-value pairs.
      * @return integer The number of affected rows.
      */
@@ -79,6 +79,6 @@ abstract class Repository
      */
     public function findAll()
     {
-        return $this->db->fetchAll(sprintf('SELECT * FROM %s', $this->getTableName()));
+        return $this->db->fetchAll(sprintf('SELECT * FROM %s;', $this->getTableName()));
     }
 }
