@@ -69,7 +69,7 @@ abstract class Repository
      */
     public function find($id)
     {
-        return $this->db->fetchAssoc(sprintf('SELECT * FROM %s WHERE id = ? LIMIT 1', $this->getTableName()), array((int) $id));
+        return $this->db->fetchAssoc(sprintf('SELECT * FROM %s WHERE id = ? LIMIT 1', $this->getTableName()), array($id));
     }
 
     /**
