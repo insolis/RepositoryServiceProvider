@@ -2,21 +2,23 @@
 
 namespace Insolis\Provider;
 
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 use Silex\Application;
+use Silex\Api\BootableProviderInterface;
 
-class RepositoryServiceProvider implements ServiceProviderInterface
+class RepositoryServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
     }
 
     public function boot(Application $app)
     {
         foreach ($app['repository.repositories'] as $label => $class) {
-            $app[$label] = $app->share(function ($app) use ($class) {
+            $app[$label] = function ($app) use ($class) {
                 return new $class($app['db']); 
-            });
+            };
         }
     }
 }
